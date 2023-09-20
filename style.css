@@ -1,0 +1,46 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(to bottom, #8c60e4, #261763);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3em;
+  height: 24em;
+  width: 24em;
+  background-color: #8c60e4;
+  border-radius: 2em;
+}
+.box {
+  background-color: #261763;
+  border-radius: 2em;
+  height: 7em;
+  width: 7em;
+}
+
+.players {
+  display: flex;
+  margin-bottom: 3em;
+  gap: 13em;
+}
+
+.player-x {
+  height: 5em;
+  width: 12em;
+  border-radius: 1em;
+  background-color: #261763;
+}
+.player-o {
+  height: 5em;
+  width: 12em;
+  border-radius: 1em;
+  background-color: #261763;
+}
