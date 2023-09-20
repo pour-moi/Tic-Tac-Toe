@@ -63,6 +63,8 @@ boxes.forEach(function (box) {
       let winner = checkWinner();
       if (winner) {
         let victory = document.querySelector(".winner");
+        let container = document.querySelector(".container");
+        container.classList.add("blur");
         victory.textContent = `${winner} won`;
       }
     }
