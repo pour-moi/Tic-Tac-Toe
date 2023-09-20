@@ -8,6 +8,11 @@ body {
   background: linear-gradient(to bottom, #8c60e4, #261763);
 }
 
+@font-face {
+  font-family: "jj";
+  src: url(junegull.ttf);
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -24,6 +29,9 @@ body {
   border-radius: 2em;
   height: 7em;
   width: 7em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .players {
@@ -43,4 +51,9 @@ body {
   width: 12em;
   border-radius: 1em;
   background-color: #261763;
+}
+.xo {
+  font-size: 100px;
+  font-family: jj;
+  color: #e6c621;
 }
