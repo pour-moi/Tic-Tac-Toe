@@ -1,4 +1,5 @@
 let boxes = document.querySelectorAll(".box");
+let restart = document.querySelector(".restart");
 
 function getComputerChoice(boxes) {
   let availableBoxes = Array.from(boxes).filter(
@@ -48,6 +49,13 @@ function checkWinner() {
   return null;
 }
 
+restart.addEventListener("click", function () {
+  boxes.forEach(function (box) {
+    let xo = box.querySelector(".xo");
+    xo.textContent = "";
+  });
+});
+
 boxes.forEach(function (box) {
   box.addEventListener("click", function () {
     let xo = this.querySelector(".xo");
@@ -66,6 +74,9 @@ boxes.forEach(function (box) {
         let container = document.querySelector(".container");
         container.classList.add("blur");
         victory.textContent = `${winner} won`;
+        restart.style.display = "block";
+        restart.textContent = "RESTART";
+        clearBoxes();
       }
     }
   });

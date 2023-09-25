@@ -72,3 +72,21 @@ body {
 .blur {
   filter: blur(3px);
 }
+
+.restart {
+  font-size: 2em;
+  font-family: jj;
+  background-color: #e6c621;
+  border-style: none;
+  border-radius: 2em;
+  padding: 0.2em;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+button {
+  margin-top: 2em;
+}
