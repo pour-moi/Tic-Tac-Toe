@@ -49,13 +49,6 @@ function checkWinner() {
   return null;
 }
 
-restart.addEventListener("click", function () {
-  boxes.forEach(function (box) {
-    let xo = box.querySelector(".xo");
-    xo.textContent = "";
-  });
-});
-
 boxes.forEach(function (box) {
   box.addEventListener("click", function () {
     let xo = this.querySelector(".xo");
@@ -80,4 +73,16 @@ boxes.forEach(function (box) {
       }
     }
   });
+});
+
+restart.addEventListener("click", function () {
+  boxes.forEach(function (box) {
+    let xo = box.querySelector(".xo");
+    xo.textContent = "";
+  });
+  let victory = document.querySelector(".winner");
+  victory.textContent = "";
+  let container = document.querySelector(".container");
+  container.classList.remove("blur");
+  restart.style.display = "none";
 });
