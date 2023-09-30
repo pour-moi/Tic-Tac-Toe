@@ -1,5 +1,13 @@
 let boxes = document.querySelectorAll(".box");
 let restart = document.querySelector(".restart");
+let start = document.querySelector(".start");
+let main = document.querySelector(".main");
+let intro = document.querySelector(".intro");
+
+start.addEventListener("click", function () {
+  main.style.display = "block";
+  intro.style.display = "none";
+});
 
 function getComputerChoice(boxes) {
   let availableBoxes = Array.from(boxes).filter(
