@@ -14,12 +14,23 @@ body {
   src: url(junegull.ttf);
 }
 
+@font-face {
+  font-family: "spite";
+  src: url(Spit\ Shine\ Regular.ttf);
+}
+
 .main {
   display: flex;
   flex-direction: column;
   align-items: center;
   display: none;
 }
+
+.boxess {
+  display: flex;
+  justify-content: center;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -171,7 +182,7 @@ body {
   font-size: 5.5em;
   padding-left: 0.2em;
   color: #e6c621;
-  font-family: jj;
+  font-family: spite;
 }
 
 .boxx {
@@ -189,7 +200,7 @@ body {
 .oo {
   font-size: 5.5em;
   color: #e6c621;
-  font-family: jj;
+  font-family: spite;
   padding-left: 0.01em;
 }
 
