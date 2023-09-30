@@ -14,6 +14,12 @@ body {
   src: url(junegull.ttf);
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: none;
+}
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -53,17 +59,12 @@ body {
   color: white;
 }
 .x {
-  display: flex;
-  align-self: center;
   font-size: 5.5em;
   padding-left: 0.2em;
   color: #e6c621;
 }
 .o {
-  display: flex;
-  align-self: center;
   font-size: 5.5em;
-  padding-left: 0.2em;
   color: #e6c621;
 }
 .player-o {
@@ -109,6 +110,87 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.enterName {
+  color: #e6c621;
+  font-size: 4em;
+  font-family: jj;
+}
+
+.intro {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
+  gap: 2em;
+  margin-top: 1em;
+}
+
+.firstName {
+  width: 40vw;
+  border-radius: 0.4em;
+  border-style: none;
+  padding: 1em;
+  margin-left: 6em;
+}
+.secondName {
+  width: 40vw;
+  border-style: none;
+  border-radius: 0.4em;
+  padding: 1em;
+  margin-left: 6em;
+}
+
+.firstPlayer {
+  color: white;
+  font-family: jj;
+  font-size: 3em;
+}
+
+.secondPlayer {
+  font-family: jj;
+  color: white;
+  font-size: 3em;
+}
+
+.start {
+  padding: 1em;
+  width: 10em;
+  border-radius: 2em;
+  border-style: none;
+  background-color: #e6c621;
+  font-family: jj;
+  color: #261763;
+  font-size: 1.5em;
+  margin-top: 0;
+}
+
+.xx {
+  font-size: 5.5em;
+  padding-left: 0.2em;
+  color: #e6c621;
+  font-family: jj;
+}
+
+.boxx {
+  display: flex;
+  gap: 2em;
+  align-items: center;
+}
+
+.boxxx {
+  display: flex;
+  gap: 2em;
+  align-items: center;
+}
+
+.oo {
+  font-size: 5.5em;
+  color: #e6c621;
+  font-family: jj;
+  padding-left: 0.01em;
 }
 
 button {
