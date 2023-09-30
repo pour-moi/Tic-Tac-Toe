@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a Tic Tac Toe game where you can currently play against the computer. The design of the game is almost complete.
+This is a Tic Tac Toe game where you can currently play against the computer. The design of the game, crafted by Vashishth Vyas from Behance, is almost complete.
 
 ## Current Features
 
