@@ -3,10 +3,13 @@ let restart = document.querySelector(".restart");
 let start = document.querySelector(".start");
 let main = document.querySelector(".main");
 let intro = document.querySelector(".intro");
+let firstName = document.querySelector(".firstName");
+let playerX = document.querySelector(".player-x .name");
 
 start.addEventListener("click", function () {
   main.style.display = "block";
   intro.style.display = "none";
+  playerX.textContent = firstName.value;
 });
 
 function getComputerChoice(boxes) {
