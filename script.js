@@ -5,9 +5,16 @@ let main = document.querySelector(".main");
 let intro = document.querySelector(".intro");
 let firstName = document.querySelector(".firstName");
 let playerX = document.querySelector(".player-x .name");
+let newGame = document.querySelector(".newGame");
+let cover = document.querySelector(".cover");
+
+newGame.addEventListener("click", function () {
+  intro.style.display = "flex";
+  cover.style.display = "none";
+});
 
 start.addEventListener("click", function () {
-  main.style.display = "block";
+  main.style.display = "flex";
   intro.style.display = "none";
   playerX.textContent = firstName.value;
 });
