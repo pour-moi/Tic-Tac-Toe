@@ -137,6 +137,7 @@ body {
   align-items: center;
   gap: 2em;
   margin-top: 1em;
+  display: none;
 }
 
 .firstName {
@@ -206,4 +207,48 @@ body {
 
 button {
   margin-top: 2em;
+}
+
+.cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+.head {
+  font-size: 6em;
+  font-family: jj;
+  color: #e6c621;
+  margin-bottom: 0;
+}
+
+.topic {
+  font-size: 10em;
+  font-family: jj;
+  color: #e6c621;
+  margin: 0;
+}
+.newGame {
+  padding: 0.6em;
+  width: 9em;
+  font-size: large;
+  font-weight: 7em;
+  font-family: jj;
+  border-radius: 2em;
+  border-style: none;
+  background-color: #e6c621;
+  color: #261763;
+}
+
+.scores {
+  padding: 0.6em;
+  width: 9em;
+  font-size: large;
+  font-weight: 7em;
+  font-family: jj;
+  border-radius: 2em;
+  border-style: solid;
+  background-color: #261763;
+  color: white;
+  border-color: #e6c621;
 }
