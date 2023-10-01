@@ -252,3 +252,73 @@ button {
   color: white;
   border-color: #e6c621;
 }
+
+/* Responsive adjustments */
+@media only screen and (max-width: 600px) {
+  .head {
+    font-size: 4em;
+    margin-bottom: 0.3em;
+  }
+  .cover {
+    margin-top: 3em;
+  }
+  .enterName {
+    font-size: 2em;
+  }
+  .firstPlayer {
+    font-size: 2em;
+  }
+  .secondPlayer {
+    font-size: 2em;
+  }
+  .firstName {
+    width: auto;
+    padding: 0.7em;
+  }
+  .secondName {
+    width: auto;
+    padding: 0.7em;
+  }
+  .intro {
+    height: auto;
+    width: auto;
+  }
+  .start {
+    padding: 0.8em;
+    width: 8em;
+    font-size: 1.5em;
+  }
+  .container {
+    gap: 0.2em;
+    height: 18.5em;
+    width: 18.5em;
+    border-radius: 2em;
+  }
+  .box {
+    border-radius: 1.7em;
+    height: 5.5em;
+    width: 5.5em;
+  }
+  .players {
+    display: flex;
+    margin-bottom: 3em;
+    gap: 2em;
+  }
+  .player-x,
+  .player-o {
+    height: 4em;
+    width: 8em;
+  }
+
+  .x {
+    font-size: 4.5em;
+    padding-left: 0.2em;
+    color: #e6c621;
+  }
+  .o {
+    font-size: 4.5em;
+  }
+  .winner {
+    font-size: 4em;
+  }
+}
