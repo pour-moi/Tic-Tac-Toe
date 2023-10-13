@@ -3,10 +3,25 @@ let restart = document.querySelector(".restart");
 let start = document.querySelector(".start");
 let main = document.querySelector(".main");
 let intro = document.querySelector(".intro");
-let firstName = document.querySelector(".firstName");
-let playerX = document.querySelector(".player-x .name");
 let newGame = document.querySelector(".newGame");
 let cover = document.querySelector(".cover");
+
+// Player Factory
+const Player = (player1, player2) => {
+  let playerO = document.querySelector(".player-o .name");
+  let firstName = document.querySelector(".firstName");
+  let playerX = document.querySelector(".player-x .name");
+  let secondName = document.querySelector(".secondName");
+
+  const assignNames = () => {
+    (playerX.textContent = firstName.value),
+      (playerO.textContent = secondName.value);
+  };
+
+  return {
+    assignNames,
+  };
+};
 
 newGame.addEventListener("click", function () {
   intro.style.display = "flex";
@@ -14,9 +29,10 @@ newGame.addEventListener("click", function () {
 });
 
 start.addEventListener("click", function () {
+  let player = Player();
   main.style.display = "flex";
   intro.style.display = "none";
-  playerX.textContent = firstName.value;
+  player.assignNames();
 });
 
 function getComputerChoice(boxes) {
