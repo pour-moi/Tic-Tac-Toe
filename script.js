@@ -1,5 +1,3 @@
-let boxes = document.querySelectorAll(".box");
-let restart = document.querySelector(".restart");
 let start = document.querySelector(".start");
 let main = document.querySelector(".main");
 let intro = document.querySelector(".intro");
@@ -23,6 +21,104 @@ const Player = (player1, player2) => {
   };
 };
 
+const Game = () => {
+  let boxes = document.querySelectorAll(".box");
+  let board = Array(9).fill(null);
+  let currentPlayer = "X";
+
+  //controls turns for the players
+  const playTurn = () => {
+    boxes.forEach((box, index) => {
+      let xo = box.querySelector(".xo");
+      box.addEventListener("click", function () {
+        if (board[index] === null) {
+          xo.textContent = currentPlayer;
+          board[index] = currentPlayer;
+
+          // Switch the current player
+          currentPlayer = currentPlayer === "X" ? "O" : "X";
+          checkcolumns(board[index]);
+          checkrow(board[index]);
+          checkdiagonal(board[index]);
+        }
+      });
+    });
+  };
+
+  const clearBoard = () => {
+    let boxes = document.querySelectorAll(".box");
+    boxes.forEach((box) => {
+      let xo = box.querySelector(".xo");
+      xo.textContent = "";
+    });
+  };
+
+  const checkcolumns = (getsign) => {
+    for (let i = 0; i < 3; i++) {
+      if (
+        (board[0] == getsign && board[1] == getsign && board[2] == getsign) ||
+        (board[3] == getsign && board[4] == getsign && board[5] == getsign) ||
+        (board[6] == getsign && board[7] == getsign && board[8] == getsign)
+      ) {
+        let container = document.querySelector(".container");
+        container.classList.add("blur");
+        restart(getsign);
+      }
+    }
+  };
+
+  const checkrow = (getSign) => {
+    for (let i = 0; i < 3; i++) {
+      if (
+        (board[0] == getSign && board[3] == getSign && board[6] == getSign) ||
+        (board[1] == getSign && board[4] == getSign && board[7] == getSign) ||
+        (board[5] == getSign && board[2] == getSign && board[8] == getSign)
+      ) {
+        let container = document.querySelector(".container");
+        container.classList.add("blur");
+        restart(getSign);
+      }
+    }
+  };
+
+  const checkdiagonal = (getSign) => {
+    for (let i = 0; i < 3; i++) {
+      if (
+        (board[0] == getSign && board[4] == getSign && board[8] == getSign) ||
+        (board[2] == getSign && board[4] == getSign && board[6] == getSign)
+      ) {
+        let container = document.querySelector(".container");
+        container.classList.add("blur");
+        restart(getSign);
+      }
+    }
+  };
+
+  const restart = (winnersign) => {
+    let restart = document.querySelector(".restart");
+    let victory = document.querySelector(".winner");
+
+    restart.style.display = "block";
+    restart.textContent = "RESTART";
+    let boxes = document.querySelectorAll(".box");
+
+    restart.addEventListener("click", function () {
+      boxes.forEach(function (box) {
+        clearBoard();
+      });
+      board = Array(9).fill(null);
+      currentPlayer = "X";
+      victory.textContent = "";
+      let container = document.querySelector(".container");
+      container.classList.remove("blur");
+      restart.style.display = "none";
+    });
+    victory.textContent = winnersign + " won";
+  };
+
+  return { checkcolumns, playTurn };
+};
+
 newGame.addEventListener("click", function () {
   intro.style.display = "flex";
   cover.style.display = "none";
@@ -35,88 +131,12 @@ start.addEventListener("click", function () {
   player.assignNames();
 });
 
-function getComputerChoice(boxes) {
-  let availableBoxes = Array.from(boxes).filter(
-    (box) => box.querySelector(".xo").textContent === ""
-  );
-  return availableBoxes[Math.floor(Math.random() * availableBoxes.length)];
-}
+// function getComputerChoice(boxes) {
+//   let availableBoxes = Array.from(boxes).filter(
+//     (box) => box.querySelector(".xo").textContent === ""
+//   );
+//   return availableBoxes[Math.floor(Math.random() * availableBoxes.length)];
+// }
 
-function checkWinner() {
-  let box1 = document.querySelector(".box1").textContent;
-  let box2 = document.querySelector(".box2").textContent;
-  let box3 = document.querySelector(".box3").textContent;
-  let box4 = document.querySelector(".box4").textContent;
-  let box5 = document.querySelector(".box5").textContent;
-  let box6 = document.querySelector(".box6").textContent;
-  let box7 = document.querySelector(".box7").textContent;
-  let box8 = document.querySelector(".box8").textContent;
-  let box9 = document.querySelector(".box9").textContent;
-
-  if (
-    (box1 !== "" && box1 === box2 && box2 === box3) ||
-    (box1 !== "" && box1 === box4 && box4 === box7) ||
-    (box1 !== "" && box1 === box5 && box5 === box9)
-  ) {
-    return box1;
-  }
-
-  if (box2 !== "" && box2 === box5 && box5 === box8) {
-    return box2;
-  }
-
-  if (
-    (box3 !== "" && box3 === box5 && box5 === box7) ||
-    (box3 !== "" && box3 === box6 && box6 === box9)
-  ) {
-    return box3;
-  }
-
-  if (box4 !== "" && box4 === box5 && box5 === box6) {
-    return box4;
-  }
-
-  if (box7 !== "" && box7 === box8 && box8 === box9) {
-    return box7;
-  }
-
-  return null;
-}
-
-boxes.forEach(function (box) {
-  box.addEventListener("click", function () {
-    let xo = this.querySelector(".xo");
-    if (xo.textContent === "") {
-      xo.textContent = "X";
-
-      let computerBox = getComputerChoice(boxes);
-      if (computerBox) {
-        let computerXO = computerBox.querySelector(".xo");
-        computerXO.textContent = "O";
-      }
-
-      let winner = checkWinner();
-      if (winner) {
-        let victory = document.querySelector(".winner");
-        let container = document.querySelector(".container");
-        container.classList.add("blur");
-        victory.textContent = `${winner} won`;
-        restart.style.display = "block";
-        restart.textContent = "RESTART";
-        clearBoxes();
-      }
-    }
-  });
-});
-
-restart.addEventListener("click", function () {
-  boxes.forEach(function (box) {
-    let xo = box.querySelector(".xo");
-    xo.textContent = "";
-  });
-  let victory = document.querySelector(".winner");
-  victory.textContent = "";
-  let container = document.querySelector(".container");
-  container.classList.remove("blur");
-  restart.style.display = "none";
-});
+let gameboard = Game();
+gameboard.playTurn();

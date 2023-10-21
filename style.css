@@ -94,6 +94,20 @@ body {
   font-family: jj;
   color: #e6c621;
 }
+
+.X {
+  /* styles for X */
+  font-size: 100px;
+  font-family: jj;
+  color: #e6c621;
+}
+
+.O {
+  /* styles for O */
+  font-size: 100px;
+  font-family: jj;
+  color: #e6c621;
+}
 .winner {
   font-size: 100px;
   font-family: jj;
