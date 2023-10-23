@@ -37,6 +37,20 @@ const Game = () => {
 
           // Switch the current player
           currentPlayer = currentPlayer === "X" ? "O" : "X";
+
+          if (
+            !checkcolumns(board[index]) &&
+            !checkrow(board[index]) &&
+            !checkdiagonal(board[index])
+          ) {
+            if (!board.includes(null)) {
+              console.log("Draw");
+              // Handle draw condition
+              restart();
+            }
+          } else {
+            restart(currentPlayer);
+          }
           checkcolumns(board[index]);
           checkrow(board[index]);
           checkdiagonal(board[index]);
@@ -114,6 +128,11 @@ const Game = () => {
       restart.style.display = "none";
     });
     victory.textContent = winnersign + " won";
+    if (winnersign == undefined) {
+      victory.textContent = "Draw";
+      let container = document.querySelector(".container");
+      container.classList.add("blur");
+    }
   };
 
   return { checkcolumns, playTurn };
