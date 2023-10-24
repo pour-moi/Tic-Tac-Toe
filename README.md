@@ -2,21 +2,20 @@
 
 ## Overview
 
-This is a Tic Tac Toe game where you can currently play against the computer. The design of the game, crafted by Vashishth Vyas from Behance, is almost complete.
+This is a responsive Tic Tac Toe game where you can currently play in multiplayer mode. The design of the game, crafted by Vashishth Vyas from Behance, is almost complete.
 
 ## Current Features
 
-- **Single Player Mode**: You can play against the computer.
-- **Player Name Input**: You can input your name in the Player One input box.
+- **Multiplayer Mode**: You can play with other players.
+- **Player Name Input**: You can input your names in the Player One and Player Two input boxes.
 
 ## Upcoming Features
 
-- **Multiplayer Mode**: In the future, there will be an option to play with other players. Both single player and multiplayer options will be available.
-- **Player Two**: Currently, Player Two is not available. There is an input box to write your name for Player Two, but you can skip it for now.
+- **Single Player Mode**: In the future, there will be an option to play against the computer. Both single player and multiplayer options will be available.
 
 ## Note
 
-The game is currently not responsive, but i am working on improving this.
+The feature of playing against the computer is not finished yet.
 
 ## Contributions and Comments
 
