@@ -1,9 +1,3 @@
-let start = document.querySelector(".start");
-let main = document.querySelector(".main");
-let intro = document.querySelector(".intro");
-let newGame = document.querySelector(".newGame");
-let cover = document.querySelector(".cover");
-
 // Player Factory
 const Player = (player1, player2) => {
   let playerO = document.querySelector(".player-o .name");
@@ -135,20 +129,32 @@ const Game = () => {
     }
   };
 
-  return { checkcolumns, playTurn };
+  const startGame = () => {
+    let main = document.querySelector(".main");
+    let intro = document.querySelector(".intro");
+    let start = document.querySelector(".start");
+    start.addEventListener("click", function () {
+      let player = Player();
+      main.style.display = "flex";
+      intro.style.display = "none";
+      player.assignNames();
+      playTurn();
+    });
+  };
+
+  const NewGame = () => {
+    let intro = document.querySelector(".intro");
+    let newGame = document.querySelector(".newGame");
+    let cover = document.querySelector(".cover");
+    newGame.addEventListener("click", function () {
+      intro.style.display = "flex";
+      cover.style.display = "none";
+      startGame();
+    });
+  };
+
+  return { startGame, NewGame, playTurn };
 };
-
-newGame.addEventListener("click", function () {
-  intro.style.display = "flex";
-  cover.style.display = "none";
-});
-
-start.addEventListener("click", function () {
-  let player = Player();
-  main.style.display = "flex";
-  intro.style.display = "none";
-  player.assignNames();
-});
 
 // function getComputerChoice(boxes) {
 //   let availableBoxes = Array.from(boxes).filter(
@@ -158,4 +164,4 @@ start.addEventListener("click", function () {
 // }
 
 let gameboard = Game();
-gameboard.playTurn();
+gameboard.NewGame();
